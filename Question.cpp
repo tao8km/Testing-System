@@ -8,7 +8,7 @@ istream& operator>> (istream& in, Question& test) {
 	if (in) {
 		getline(in, question);
 		char sign;
-		for (int i = 0; in; i++) {
+		for (int i = 1; in; i++) {
 			in.get(sign);
 			if (sign == '\n' || sign == '\r') { // \r\n
 				break;
@@ -26,4 +26,13 @@ istream& operator>> (istream& in, Question& test) {
 	}
 
 	return in;
+}
+
+ostream& operator<< (ostream& out, const Question& q) {
+	out << q.question << '\n';
+	int i = 0;
+	for (const auto& ans : q.answers) {
+		out << ++i << ' ' << ans << '\n';
+	}
+	return out;
 }

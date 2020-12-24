@@ -17,6 +17,13 @@ public:
 	void setQuestion(string q) { question = q; }
 	void setAnswers(const vector<string>& a) { answers = a; }
 	void setCorrect(int c) { correct = c; }
+	friend ostream& operator<< (ostream& out, const Question& q);
+	int getNumberOfAnswers() const {
+		return answers.size();
+	}
+	int getCorrect() const {
+		return correct;
+	}
 };
 
 istream& operator>> (istream& in, Question& test);
